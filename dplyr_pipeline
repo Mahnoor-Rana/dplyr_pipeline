@@ -1,0 +1,17 @@
+library(datasets)
+head(mtcars)
+#summary function
+mtcars%>%
+group_by(cyl)  %>%
+summarise(mean=mean(disp),n=n())
+# using mutate func
+library(datasets)
+head(mtcars)
+x<-mtcars%>%select(mpg, cyl, disp,  hp ,drat)%>%mutate(y=disp*hp)
+names(x)
+# filter func
+library(datasets)
+head(mtcars)
+table(mtcars$hp)
+x<-mtcars%>%select(mpg, cyl, disp,  hp ,drat) %>% filter(hp%in%c(97,123))
+table(x$hp)
